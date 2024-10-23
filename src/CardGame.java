@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CardGame {
 
     public static void main(String [] args) {
@@ -110,7 +112,62 @@ public class CardGame {
 
         //game: user exchanges cards in their hand for new ones drawn from the deck
         //until they have four of a kind of the same rank in their hand
-        //-use enters the index of the card in their hand they want to draw a new card for
+        //-user enters the index of the card in their hand they want to draw a new card for
+
+        //while loop that runs until hand has four of a kind
+        //-ask user which index in the hand they want a new card for
+        //-replace that card with a new card drawn from the deck
+        //-print the new hand of cards
+        //-determine whether they have 4 of a kind
+        Scanner s = new Scanner(System.in);
+
+        boolean fourOfKind = false;
+
+        while (!fourOfKind) {
+            //step 1
+            System.out.println("Which card do you want to replace?");
+            int index = s.nextInt();
+
+            //step 2
+            hand[index] = deck[top];
+            //move where the "top" of the deck is
+            top = top + 1;
+
+            //step 3
+            for (int i = 0; i < hand.length; i++) {
+                //determine the rank and suit for each card value
+                int rankI = hand[i] % 13;
+                int suitI = hand[i] / 13;
+                System.out.println("Card " + i + " in hand: " + ranks[rankI] + " of " + suits[suitI]);
+            }
+
+            //step 4
+            for (int i = 0; i < hand.length; i++) {
+
+                //look at rank to determine 4 of kind
+                int rankI = hand[i] % 13;
+
+                int count = 0;
+
+                for(int j = 0; j < hand.length; j++) {
+                    //determine rank of card j
+                    int rankJ = hand[j] % 13;
+
+                    //increment count if the ranks are the same
+                    if(rankI == rankJ) {
+                        count++;
+                    }
+                }
+
+                //when there are four of a kind, change the boolean variable to end the while loop
+                if (count == 4) {
+                    fourOfKind = true;
+                    System.out.println("you have four " + rankI + "s");
+                }
+
+            }
+
+        }
 
     }
 
