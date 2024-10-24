@@ -149,7 +149,7 @@ public class CardGame {
 
                 int count = 0;
 
-                for(int j = 0; j < hand.length; j++) {
+                for(int j = i; j < hand.length; j++) {
                     //determine rank of card j
                     int rankJ = hand[j] % 13;
 
@@ -162,7 +162,7 @@ public class CardGame {
                 //when there are four of a kind, change the boolean variable to end the while loop
                 if (count == 4) {
                     fourOfKind = true;
-                    System.out.println("you have four " + rankI + "s");
+                    System.out.println("you have four " + ranks[rankI] + "s");
                 }
 
             }
