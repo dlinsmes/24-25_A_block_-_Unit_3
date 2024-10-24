@@ -105,9 +105,9 @@ public class TwoDimensionalArrays {
         //all their classes (col averages)
         System.out.println("student avgs:");
         double avg;
-        //loop through cols first on outside
+        //loop through cols (each name) first on outside
         for (int j = 0; j < names.length; j++) {
-            //loop through rows on inside
+            //loop through rows (classes) on inside
             avg = 0;
 
             for (int i = 0; i < subjects.length; i++) {
